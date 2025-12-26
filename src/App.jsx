@@ -1,12 +1,24 @@
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import Events from "./pages/Events";
+import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import Cart from "./pages/Cart";
+import "./App.css";
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <h1>EventSphere</h1>
-      <Home />
-    </div>
+    <>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </>
   );
 }
-
-export default App;
