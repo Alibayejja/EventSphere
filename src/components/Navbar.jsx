@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const cartCount = 1; // مؤقت، من بعد غادي يجي من Redux
 
   return (
@@ -12,8 +14,10 @@ export default function Navbar() {
         </Link>
       </div>
 
+
+
       {/* Center Links */}
-      <ul className="navbar-links">
+      <ul className={`navbar-links${menuOpen ? " open" : ""}`} onClick={() => setMenuOpen(false)}>
         <li>
           <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>
             Home
@@ -31,7 +35,7 @@ export default function Navbar() {
         </li>
       </ul>
 
-      {/* Right: Cart + Login */}
+      {/* Right: Cart + Login + Hamburger */}
       <div className="navbar-right">
         <Link to="/cart" className="cart-btn" aria-label="Cart">
           <span className="cart-icon">🛒​</span>
@@ -40,6 +44,17 @@ export default function Navbar() {
         <Link to="/login" className="navbar-login">
           Login
         </Link>
+
+        {/* Hamburger for mobile (moved here) */}
+        <button
+          className="navbar-hamburger"
+          aria-label="Open menu"
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
     </nav>
   );
