@@ -225,3 +225,120 @@
     font-size: 16px;
   }
 }
+
+/* ===== EVENTS PAGE ===== */
+
+.events-page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.events-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.events-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Tabs */
+.events-tabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
+}
+
+.events-tabs button {
+  background: none;
+  border: none;
+  padding: 12px 0;
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+}
+
+.events-tabs button.active {
+  border-bottom: 2px solid #c79a2b;
+  color: #c79a2b;
+}
+
+/* Grid */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.event-card {
+  border: 1px solid #eee;
+  background: #fff;
+}
+
+.event-image {
+  height: 230px;
+  overflow: hidden;
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Body */
+.event-body {
+  padding: 16px;
+}
+
+.event-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.event-price {
+  color: #c79a2b;
+  font-weight: 700;
+}
+
+.event-title {
+  font-size: 18px;
+  margin: 6px 0 2px;
+}
+
+.event-category {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+/* Button */
+.event-btn {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c79a2b;
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.event-btn:hover {
+  background: #c79a2b;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+}

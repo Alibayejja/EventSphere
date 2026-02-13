@@ -1,4 +1,3 @@
-// src/data/events.js
 export const events = [
   {
     id: 1,
@@ -12,7 +11,7 @@ export const events = [
   {
     id: 2,
     title: "Agriculture Exhibition",
-    category: "Concert",
+    category: "Exhibitions",
     date: "Nov 05, 2026",
     price: 180,
     image:
@@ -21,7 +20,7 @@ export const events = [
   {
     id: 3,
     title: "Avant-Garde Exhibition",
-    category: "Exhibition",
+    category: "Exhibitions",
     date: "Nov 18, 2026",
     price: 75,
     image:
@@ -30,7 +29,7 @@ export const events = [
   {
     id: 4,
     title: "Jazz on the Rooftop",
-    category: "Concert",
+    category: "Music",
     date: "Nov 25, 2026",
     price: 120,
     image:
