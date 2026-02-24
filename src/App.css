@@ -3533,12 +3533,13 @@
 }
 
 .admin-add-btn {
-  padding: 12px 25px;
+  padding: 8px 18px;
   background: #0f172a;
   color: #ffffff;
   border: none;
   border-radius: 12px;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.3s;
 }

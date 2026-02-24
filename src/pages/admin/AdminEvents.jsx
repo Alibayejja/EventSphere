@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { events as initialEvents } from '../../data/events';
+import { useEvents } from '../../context/EventsContext';
 
 export default function AdminEvents() {
-    const [eventsList, setEventsList] = useState(initialEvents);
+    const { events, addEvent, updateEvent, deleteEvent } = useEvents();
     const [showModal, setShowModal] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [currentEvent, setCurrentEvent] = useState({ title: '', category: '', date: '', price: '', image: '', description: '' });
@@ -25,20 +25,16 @@ export default function AdminEvents() {
 
     const handleDelete = (id) => {
         if (window.confirm('Are you sure you want to delete this event?')) {
-            setEventsList(eventsList.filter(e => e.id !== id));
+            deleteEvent(id);
         }
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (isEditing) {
-            setEventsList(eventsList.map(e => e.id === currentEvent.id ? currentEvent : e));
+            updateEvent(currentEvent);
         } else {
-            const newEvent = {
-                ...currentEvent,
-                id: eventsList.length > 0 ? Math.max(...eventsList.map(e => e.id)) + 1 : 1
-            };
-            setEventsList([...eventsList, newEvent]);
+            addEvent(currentEvent);
         }
         closeModal();
     };
@@ -70,7 +66,7 @@ export default function AdminEvents() {
                         </tr>
                     </thead>
                     <tbody>
-                        {eventsList.map((event) => (
+                    {events.map((event) => (
                             <tr key={event.id}>
                                 <td>
                                     <div className="table-item-main">

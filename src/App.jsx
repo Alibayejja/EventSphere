@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
+import { EventsProvider } from "./context/EventsContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -26,31 +27,33 @@ export default function App() {
 
   return (
     <>
-      <CartProvider>
-        {!isAdminPath && <Navbar />}
+      <EventsProvider>
+        <CartProvider>
+          {!isAdminPath && <Navbar />}
 
-        <Routes>
-          {/* Main Site Routes */}
-          <Route path="/" element={<Home />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/events/:id" element={<EventDetails />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Routes>
+            {/* Main Site Routes */}
+            <Route path="/" element={<Home />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/events/:id" element={<EventDetails />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
 
-          {/* Admin Routes */}
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="dashboard" element={<AdminDashboard />} />
-            <Route path="events" element={<AdminEvents />} />
-            <Route path="orders" element={<AdminOrders />} />
-          </Route>
-        </Routes>
+            {/* Admin Routes */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="dashboard" element={<AdminDashboard />} />
+              <Route path="events" element={<AdminEvents />} />
+              <Route path="orders" element={<AdminOrders />} />
+            </Route>
+          </Routes>
 
-        {isHome && !isAdminPath && <Footer />}
-      </CartProvider>
+          {isHome && !isAdminPath && <Footer />}
+        </CartProvider>
+      </EventsProvider>
     </>
   );
 }

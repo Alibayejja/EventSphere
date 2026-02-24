@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { events } from "../data/events";
+import { useEvents } from "../context/EventsContext";
 
 const CATEGORIES = ["All", "Exhibitions", "Gala", "Music"];
 
 function Events() {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const { events } = useEvents();
 
   const filteredEvents =
     selectedCategory === "All"
